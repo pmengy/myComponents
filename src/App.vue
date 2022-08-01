@@ -1,28 +1,41 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="main">
+    <MyButton round @click="click">按钮</MyButton>
+    <my-progress
+      :value="50"
+      color="skyblue"
+      :height="30"
+      :width="200"
+    ></my-progress>
+    <my-progress
+      :value="50"
+      color="orange"
+      :height="20"
+      :width="300"
+      @finish="finish"
+    ></my-progress>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyProgress from './components/MyProgress.vue'
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  components: { MyProgress },
+  data() {
+    return {}
+  },
+
+  created() {},
+
+  methods: {
+    click() {
+      console.log(1)
+    },
+    finish() {
+      console.log('finish')
+    }
   }
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style scoped lang="less"></style>
